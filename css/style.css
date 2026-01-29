@@ -10480,6 +10480,21 @@ Section Title
   color: #fff;
 }
 
+@media (max-width: 767.98px) {
+  .contact-section {
+    background-color: #000;
+    background-image: none;
+  }
+  .contact-section .bg-image {
+    background-position: 15% center;
+    background-image: none !important;
+    background-color: #000;
+  }
+  .contact-section:before {
+    background: none;
+  }
+}
+
 .contact-form {
   position: relative;
   padding: 56px 0 100px;
