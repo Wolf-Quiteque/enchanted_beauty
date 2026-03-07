@@ -167,6 +167,16 @@
       100% { background-position: 220% center; }
     }
 
+    @keyframes holoShift {
+      0%   { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    @keyframes starPulse {
+      0%, 100% { text-shadow: 0 0 8px rgba(224,0,16,0.6), 0 0 20px rgba(184,0,10,0.3); opacity: 1; }
+      50%       { text-shadow: 0 0 20px rgba(224,0,16,1), 0 0 40px rgba(184,0,10,0.7), 0 0 60px rgba(184,0,10,0.3); opacity: 0.9; }
+    }
+
     /* ===========================
        NAVIGATION
     =========================== */
@@ -266,29 +276,39 @@
       background:
         radial-gradient(ellipse at 70% 50%, rgba(184,0,10,0.15) 0%, transparent 60%),
         radial-gradient(ellipse at 20% 80%, rgba(100,100,100,0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 88% 12%, rgba(180,160,255,0.06) 0%, transparent 35%),
+        radial-gradient(ellipse at 12% 25%, rgba(200,180,220,0.04) 0%, transparent 30%),
+        radial-gradient(ellipse at 55% 90%, rgba(160,200,255,0.04) 0%, transparent 40%),
         var(--black);
       z-index: 0;
     }
 
-    /* Decorative metal scratches */
+    /* Decorative brushed metal / stone scratches */
     .hero-bg::after {
       content: '';
       position: absolute;
       inset: 0;
       background-image:
         repeating-linear-gradient(
+          72deg,
+          transparent,
+          transparent 60px,
+          rgba(255,255,255,0.018) 60px,
+          rgba(255,255,255,0.018) 61px
+        ),
+        repeating-linear-gradient(
           90deg,
           transparent,
           transparent 120px,
-          rgba(255,255,255,0.015) 120px,
-          rgba(255,255,255,0.015) 121px
+          rgba(200,180,255,0.012) 120px,
+          rgba(200,180,255,0.012) 121px
         ),
         repeating-linear-gradient(
           180deg,
           transparent,
           transparent 80px,
-          rgba(255,255,255,0.01) 80px,
-          rgba(255,255,255,0.01) 81px
+          rgba(255,255,255,0.008) 80px,
+          rgba(255,255,255,0.008) 81px
         );
     }
 
@@ -305,6 +325,7 @@
       letter-spacing: 0.1em;
       margin-bottom: 1.5rem;
       text-shadow: var(--blood-glow);
+      animation: starPulse 3s ease-in-out infinite;
     }
 
     .hero-headline {
@@ -317,11 +338,26 @@
     }
 
     .hero-headline .line1 {
-      background: var(--metal-text);
+      background: linear-gradient(90deg,
+        #555 0%,
+        #aaa 10%,
+        #e8daf8 20%,
+        #fff 30%,
+        #f8d8ee 40%,
+        #fff 50%,
+        #d4eeff 60%,
+        #fff 68%,
+        #eedaff 76%,
+        #fff 84%,
+        #aaa 92%,
+        #555 100%
+      );
+      background-size: 200% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       display: block;
+      animation: holoShift 6s linear infinite;
     }
 
     .hero-headline .line2 {
@@ -428,12 +464,13 @@
     =========================== */
     .marquee-wrap {
       background: linear-gradient(90deg, var(--red-dark), var(--red), var(--red-dark));
-      border-top: 1px solid rgba(255,255,255,0.1);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      border-top: 1px solid rgba(200,180,255,0.35);
+      border-bottom: 1px solid rgba(180,200,255,0.25);
       overflow: hidden;
       padding: 12px 0;
       position: relative;
       z-index: 5;
+      box-shadow: 0 0 18px rgba(184,0,10,0.4), inset 0 1px 0 rgba(255,255,255,0.12);
     }
 
     .marquee-track {
@@ -541,8 +578,34 @@
     =========================== */
     #rituals {
       padding: 120px 8%;
-      background: linear-gradient(180deg, var(--black) 0%, #0d0003 50%, var(--black) 100%);
+      background:
+        radial-gradient(ellipse 70% 40% at 30% 20%, rgba(160,140,200,0.04) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 75% 70%, rgba(140,160,200,0.03) 0%, transparent 50%),
+        linear-gradient(180deg, var(--black) 0%, #0d0003 50%, var(--black) 100%);
       position: relative;
+    }
+
+    /* Chain-link top border on rituals */
+    #rituals::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background:
+        repeating-linear-gradient(90deg,
+          transparent 0px,
+          transparent 4px,
+          rgba(160,160,200,0.5) 4px,
+          rgba(200,200,255,0.7) 10px,
+          rgba(160,160,200,0.5) 16px,
+          transparent 16px,
+          transparent 20px,
+          rgba(140,140,180,0.4) 20px,
+          rgba(180,180,220,0.6) 26px,
+          rgba(140,140,180,0.4) 32px,
+          transparent 32px,
+          transparent 36px
+        );
     }
 
     .rituals-header {
@@ -584,12 +647,20 @@
       font-family: 'Metal Mania', cursive;
       font-size: 3.5rem;
       line-height: 1;
-      background: var(--metal-text);
+      background: linear-gradient(90deg,
+        #666 0%, #bbb 15%,
+        #e0d8ff 28%, #fff 38%,
+        #ffd8ee 48%, #fff 58%,
+        #d8f0ff 68%, #fff 78%,
+        #bbb 90%, #666 100%
+      );
+      background-size: 200% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       margin-bottom: 1rem;
-      opacity: 0.4;
+      opacity: 0.5;
+      animation: holoShift 8s linear infinite;
     }
 
     .ritual-title {
@@ -1007,10 +1078,25 @@
     }
 
     .shop-headline .metal {
-      background: var(--metal-text);
+      background: linear-gradient(90deg,
+        #555 0%,
+        #aaa 10%,
+        #e8daf8 20%,
+        #fff 30%,
+        #f8d8ee 40%,
+        #fff 50%,
+        #d4eeff 60%,
+        #fff 68%,
+        #eedaff 76%,
+        #fff 84%,
+        #aaa 92%,
+        #555 100%
+      );
+      background-size: 200% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      animation: holoShift 6s linear infinite;
     }
 
     .shop-headline .red { color: var(--red-bright); }
@@ -1352,7 +1438,7 @@
     <div class="hero-bg"></div>
 
     <div class="hero-content fade-in">
-      <div class="hero-label">✦ Luxury Body Oil ✦</div>
+      <div class="hero-label">★ Luxury Body Oil ★</div>
       <h1 class="hero-headline">
         <span class="line1">Confidence,</span>
         <span class="line2">bottled.</span>
