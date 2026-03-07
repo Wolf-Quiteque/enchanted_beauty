@@ -146,23 +146,25 @@
        RAINBOW PRIDE ACCENT LINE
     =========================== */
     .pride-stripe {
-      height: 3px;
+      height: 4px;
       background: linear-gradient(90deg,
-        #e40303 0%,
-        #ff8c00 16.6%,
-        #ffed00 33.3%,
-        #008026 50%,
-        #004dff 66.6%,
-        #750787 83.3%,
-        #e40303 100%
+        #1a0002 0%,
+        #6b0006 12%,
+        #b8000a 26%,
+        #e00010 38%,
+        #e8e8e8 50%,
+        #e00010 62%,
+        #b8000a 74%,
+        #6b0006 88%,
+        #1a0002 100%
       );
-      background-size: 200% auto;
-      animation: prideFlow 4s linear infinite;
+      background-size: 220% auto;
+      animation: metalShimmer 5s ease-in-out infinite alternate;
     }
 
-    @keyframes prideFlow {
-      0% { background-position: 0% center; }
-      100% { background-position: 200% center; }
+    @keyframes metalShimmer {
+      0%   { background-position: 0% center; }
+      100% { background-position: 220% center; }
     }
 
     /* ===========================
@@ -767,6 +769,60 @@
       padding: 120px 8%;
     }
 
+    .reviews-layout {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 3px;
+      align-items: start;
+    }
+
+    .reviews-img-col {
+      position: relative;
+    }
+
+    .reviews-img-col img {
+      width: 100%;
+      height: 100%;
+      min-height: 520px;
+      object-fit: cover;
+      display: block;
+      filter: contrast(1.1) saturate(0.8);
+    }
+
+    .reviews-img-quote {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 2rem 1.5rem;
+      background: linear-gradient(0deg, rgba(5,5,5,0.96) 0%, transparent 100%);
+    }
+
+    .reviews-img-quote .q-mark {
+      font-family: 'Metal Mania', cursive;
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--red-bright);
+      opacity: 0.5;
+    }
+
+    .reviews-img-quote .q-text {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      color: var(--silver-light);
+      letter-spacing: 0.08em;
+      margin-top: 0.5rem;
+    }
+
+    /* Shop background image */
+    .shop-bg-img {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/photos/about-img1-home55.jpg');
+      background-size: cover;
+      background-position: center top;
+      filter: brightness(0.22) saturate(0.6);
+      z-index: 0;
+    }
+
     .reviews-header {
       text-align: center;
       margin-bottom: 70px;
@@ -1233,6 +1289,8 @@
       .effect-image-col { display: none; }
       .howtowear-inner { grid-template-columns: 1fr; }
       .howtowear-image { display: none; }
+      .reviews-layout { grid-template-columns: 1fr; }
+      .reviews-img-col { display: none; }
       .reviews-grid { grid-template-columns: 1fr; gap: 2px; }
       .gallery-grid { grid-template-columns: 1fr 1fr; }
       .gallery-item:first-child { grid-row: auto; }
@@ -1394,10 +1452,14 @@
         <div class="ritual-title">The Confidence Coat</div>
         <p class="ritual-body">Layer it. Build it. Make it unforgettable. No ceiling on your shine.</p>
       </div>
-      <div class="ritual-card fade-in" style="border-color:rgba(200,200,200,0.12); background: linear-gradient(180deg, rgba(20,20,20,0.95), rgba(10,10,10,0.98));">
-        <div class="ritual-num" style="opacity:0.3;">04</div>
-        <div class="ritual-title" style="color:var(--red-bright);">How To Apply</div>
-        <p class="ritual-body">Warm 2–3 drops. Apply. Let it catch light. Watch everything change.</p>
+      <div class="ritual-card fade-in" style="padding:0; border:none; overflow:hidden; position:relative;">
+        <img src="images/photos/about-img2-home57.jpg" alt="How To Apply"
+             style="width:100%; height:100%; min-height:300px; object-fit:cover; display:block; filter:contrast(1.1) saturate(0.75);" />
+        <div style="position:absolute; inset:0; background:linear-gradient(0deg, rgba(5,5,5,0.92) 0%, rgba(107,0,6,0.25) 100%); display:flex; flex-direction:column; justify-content:flex-end; padding:2rem;">
+          <div class="ritual-num" style="opacity:0.35;">04</div>
+          <div class="ritual-title" style="color:var(--red-bright);">How To Apply</div>
+          <p class="ritual-body">Warm 2–3 drops. Apply. Let it catch light. Watch everything change.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1486,21 +1548,30 @@
       <h2 class="section-headline">What People <em>Notice.</em></h2>
     </div>
 
-    <div class="reviews-grid">
-      <div class="review-card fade-in">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"This is the first body oil that actually looks like a finish. The shine is clean, not greasy. I get compliments every single time."</p>
-        <div class="review-author">A.M. — Verified Buyer</div>
+    <div class="reviews-layout">
+      <div class="reviews-img-col fade-in">
+        <img src="images/photos/ervice3-11.jpg" alt="Enchanted Beauty" />
+        <div class="reviews-img-quote">
+          <div class="q-mark">"</div>
+          <div class="q-text">Built for the bold. Worn by the free.</div>
+        </div>
       </div>
-      <div class="review-card fade-in">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"The after-dark glow is unreal. I put it on my shoulders and collarbone and it catches every light in the room. I felt like a different person."</p>
-        <div class="review-author">J.R. — Customer</div>
-      </div>
-      <div class="review-card fade-in">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Layering it is the move. One pass is subtle… two passes is 'who IS that?' It's my pre-going-out non-negotiable now."</p>
-        <div class="review-author">K.L. — IG Community</div>
+      <div class="reviews-grid">
+        <div class="review-card fade-in">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"This is the first body oil that actually looks like a finish. The shine is clean, not greasy. I get compliments every single time."</p>
+          <div class="review-author">A.M. — Verified Buyer</div>
+        </div>
+        <div class="review-card fade-in">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"The after-dark glow is unreal. I put it on my shoulders and collarbone and it catches every light in the room. I felt like a different person."</p>
+          <div class="review-author">J.R. — Customer</div>
+        </div>
+        <div class="review-card fade-in">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Layering it is the move. One pass is subtle… two passes is 'who IS that?' It's my pre-going-out non-negotiable now."</p>
+          <div class="review-author">K.L. — IG Community</div>
+        </div>
       </div>
     </div>
   </section>
@@ -1558,6 +1629,7 @@
 
   <!-- ===== SHOP ===== -->
   <section id="shop">
+    <div class="shop-bg-img"></div>
     <div class="shop-inner">
       <span class="label-tag">The Oil</span>
       <h2 class="shop-headline">
